@@ -21,30 +21,12 @@ for (palette in palettes) {
 }
 
 #to choose specific colours of a palette, either call the colour names directly or generate your own palette only with specific colours
-# Generate the AsteroidCity2 palette
+# Generate the AsteroidCity1 and 3 palette
 asteroid_city1_palette <- wes_palette("AsteroidCity1")
 asteroid_city3_palette <- wes_palette("AsteroidCity3")
-french_dispatch_palette <- wes_palette("FrenchDispatch")
-isle_of_dogs1_palette <- wes_palette("IsleofDogs1")
-royal2_palette <- wes_palette("Royal2")
-zissou1_palette <- wes_palette("Zissou1")
-darjeeling2_palette <- wes_palette("Darjeeling2")
-darjeeling1_palette <- wes_palette("Darjeeling1")
-# Select the first and third colours
-selected_colours1 <- asteroid_city1_palette[c(3, 4)]
-selected_colours1.2 <- asteroid_city1_palette[c(4, 5)]
+
+# Select the third and fourth colour of AsteroidCity3
 selected_colours2 <- asteroid_city3_palette[c(3, 4)]
-selected_colours3 <- french_dispatch_palette[c(2, 4)]
-selected_colours4 <- isle_of_dogs1_palette[c(1, 3)]
-selected_colours5 <- royal2_palette[c(3, 5)]
-selected_colours6 <- zissou1_palette[c(5, 1)]
-selected_colours7 <- zissou1_palette[c(4, 2)]
-selected_colours8 <- darjeeling2_palette[c(3, 2)]
-selected_colours9 <- darjeeling1_palette[c(4, 5)]
-selected_colours10 <- darjeeling1_palette[c(2, 3)]
-selected_colours11 <- french_dispatch_palette[c(2, 1)]
-# Print the selected colors
-print(selected_colours)
 
 # to use the first two colours in a wespalette with ggplot use line "scale_fill_manual(values=wes_palette(n=2, name="Chevalier1"),"
 # to use colours chosen above in ggplot use line "scale_fill_manual((values = selected_colours6),"
@@ -372,7 +354,7 @@ barplot(cbind(df2$`Closer`, df2$`Away`) ~ df2$Call_type,
         ylab = "Number of occurences",
         col =  selected_colours2,
         legend.text = c("Closer", "Away"),
-        cex.lab=1.5, cex.axis=1.2, cex.main=1.5)
+        cex.lab=1.5, cex.axis=1.2, cex.main=1.5, cex.names=1.3)
 
 ggarrange(p4, p5,
           labels = c("A", "B"),
