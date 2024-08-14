@@ -3,7 +3,6 @@
 #in terms of nearest neighbour distance (NND) and vigilence behaviour
 ##To cite packages used in publications use -> citation("package_name") <- to get a 
 #citation + a BibTex enrty for LaTeX
-#Wes Anderson themes colour palettes: names(wes_palettes)
 
 ##load libraries
 library(tidyverse)
@@ -13,12 +12,6 @@ library(ggpubr)
 library(wesanderson) #for colour palettes 
 
 # wes anderson themed colour palettes#####
-#print all wes anderson themed palettes in the wesanderson library
-palettes <- c("BottleRocket1", "BottleRocket2", "Rushmore1", "Royal1", "Royal2", "Zissou1", "Darjeeling1", "Darjeeling2", "Chevalier1", "FantasticFox1", "Moonrise1", "Moonrise2", "Moonrise3", "Cavalcanti1", "GrandBudapest1", "GrandBudapest2", "IsleofDogs1", "IsleofDogs2", "FrenchDispatch", "AsteroidCity2", "AsteroidCity2", "AsteroidCity3")
-
-for (palette in palettes) {
-  print(wes_palette(c(palette)))
-}
 
 #to choose specific colours of a palette, either call the colour names directly or generate your own palette only with specific colours
 # Generate the AsteroidCity1 and 3 palette
@@ -28,9 +21,9 @@ asteroid_city3_palette <- wes_palette("AsteroidCity3")
 # Select the third and fourth colour of AsteroidCity3
 selected_colours2 <- asteroid_city3_palette[c(3, 4)]
 
-# to use the first two colours in a wespalette with ggplot use line "scale_fill_manual(values=wes_palette(n=2, name="Chevalier1"),"
-# to use colours chosen above in ggplot use line "scale_fill_manual((values = selected_colours6),"
-# for baseR plots use "col =  selected_colours9"
+# to use the first two colours in a wespalette with ggplot use line "scale_fill_manual(values=wes_palette(n=2, name="AsteroidCity1"),"
+# to use colours chosen above in ggplot use line "scale_fill_manual((values = selected_colours2),"
+# for baseR plots use "col =  selected_colours2"
 
 # ####
 
@@ -200,12 +193,12 @@ print(m)
 
 mcnemar.test(m)
 
-##data and analysis for vigilence
+##data and analysis for vigilance
 #subset data for sentinel and close calls, vigilence data
 vigi_s <- vigi %>% filter(CALL_TYPE=='SENTINEL')
 vigi_c <- vigi %>% filter(CALL_TYPE=='CLOSE')
 
-#wilcoxon for time spent vigilent (total and relative) -> I think only relative makes sense here
+#wilcoxon for time spent vigilant (total and relative) -> I think only relative makes sense here
 time_vigi_s <-  as.vector(vigi_s$TOTAL_TIME_VIGILENT)
 time_vigi_c <-  as.vector(vigi_c$TOTAL_TIME_VIGILENT)
 rel_time_vigi_s <-  as.vector(vigi_s$REL_TIME_VIGI)
